@@ -1,0 +1,28 @@
+#include <sourcemod>
+#include <sdkhooks>
+#include <sdktools>
+
+#define PLUGINVERSION		"0.01"
+
+Handle g_hCVThirdPersonEnabled = INVALID_HANDLE;
+Handle g_hCVKnifeSpeed = INVALID_HANDLE;
+Handle g_hCVOneHitKill = INVALID_HANDLE;
+
+//Plugin Information:
+public Plugin myinfo = 
+{
+	name = "Stealth Assassin", 
+	author = "The Doggy", 
+	description = "Assassin's Creed Style", 
+	version = PLUGINVERSION,
+	url = "coldcommunity.com"
+};
+
+public void OnPluginStart()
+{
+	LoadTranslations("common.phrases");
+
+	RegAdminCmd("sm_stealthmode", Command_StealthMode, ADMFLAG_GENERIC, "[SM] Forces all players to their knives and switches to darker lighting.");
+
+	
+}
